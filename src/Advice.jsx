@@ -1,13 +1,31 @@
 import React, { useState } from "react";
 import Search from "./Search";
 
-const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetching, isRolling }) => {
+const Advice = ({
+  advice,
+  fetchAdvice,
+  onSearchComplete,
+  onSearchStart,
+  isFetching,
+  isRolling,
+  setAdvice,
+}) => {
   const [adviceData, setAdviceData] = useState([]);
+  const [notFound, setNotFound] = useState("");
 
   const handleAdviceData = (data) => {
     setAdviceData(data);
+    // console.log(data);
+  };
+
+  const handleNotFound = (data) => {
+    setNotFound(data);
     console.log(data);
   };
+
+  const handleClick = () => {
+    fetchAdvice()
+  }
 
   return (
     <div className="container">
@@ -16,10 +34,22 @@ const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetchi
         onSearchStart={onSearchStart}
         onSearchComplete={onSearchComplete}
         isFetching={isFetching}
+        adviceData={adviceData}
+        notFound={notFound}
+        onNotFound={handleNotFound}
+        setAdvice={setAdvice}
+        advice={advice}
+        setAdviceData={setAdviceData}
       />
-      <p id="ad">ADVICE #{advice.id}</p>
+      {!advice && adviceData && adviceData.length > 0 ? (
+        <p className="ad">{adviceData.length} matches found</p>
+      ) : !notFound ? 
+        <p className="ad">ADVICE #{advice.id}</p> : null
+      }
       <div className="advice-container">
-        {adviceData && adviceData.length > 0 ? (
+        {advice && adviceData ? (
+          <p>{advice.advice}</p>
+        ) : adviceData && adviceData.length > 0 ? (
           <ul className="searched-advice">
             {adviceData.map((adv) => (
               <li key={adv.id}>
@@ -28,9 +58,11 @@ const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetchi
               </li>
             ))}
           </ul>
-        ) : (
-          <p>{advice.advice}</p>
-        )}
+        ) : notFound ? (
+          <p style={{ color: "red", fontSize: "15px", marginTop: "50%" }}>
+            {notFound}
+          </p>
+        ) : null}
       </div>
       <img
         src="/images/pattern-divider-mobile.svg"
@@ -42,7 +74,7 @@ const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetchi
         alt=""
         className="dktp-divider"
       />
-      <div className='btn' onClick={fetchAdvice}>
+      <div className="btn" onClick={handleClick}>
         <img
           src="/images/icon-dice.svg"
           alt="roll"
@@ -54,3 +86,7 @@ const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetchi
 };
 
 export default Advice;
+
+/*{notFound ? (
+          <p style={{ color: "red", fontSize: "15px", marginTop: "50%" }}>{notFound}</p>
+        ) :*/

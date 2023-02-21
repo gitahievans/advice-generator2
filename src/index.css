@@ -38,15 +38,14 @@ body {
 }
 
 .advice-container {
-  /* background: skyblue; */
-  height: 50%;
+  height: 55%;
+  width: 85%;
   padding: 0 5%;
   margin-top: 2%;
   background: scroll;
-  scrollbar-arrow-color: aqua;
 }
 
-#ad {
+.ad {
   font-size: .7em;
   letter-spacing: .2em;
   color: var(--neon-green);
@@ -63,7 +62,7 @@ body {
 
 .mbl-divider {
   width: 80%;
-  margin-top: 3%;
+  margin-top: 5%;
 }
 
 .dktp-divider {
@@ -75,7 +74,7 @@ body {
   width: 65px;
   border-radius: 50%;
   position: absolute;
-  top: 93.5%;
+  top: 95%;
   z-index: 1;
   background-color: var(--neon-green);
   cursor: pointer;
@@ -83,7 +82,8 @@ body {
   transition: box-shadow .2s ease-in-out;
 }
 
-.dice, .spin {
+.dice,
+.spin {
   position: absolute;
   top: 30.5%;
   left: 28%;
@@ -100,12 +100,14 @@ body {
 .search {
   position: absolute;
   top: 1%;
-  width: 50%;
+  width: 80%;
+  height: 8%;
 }
 
 form {
   display: flex;
   justify-content: space-between;
+  height: 100%;
 }
 
 .search input {
@@ -125,41 +127,45 @@ form {
   border-radius: 4px;
   cursor: pointer;
   color: black;
+  font-size: 13px;
+}
+
+.gear,
+.rotate {
+  height: 100%;
+}
+
+.rotate {
+  animation: rotate .5s linear infinite;
 }
 
 .search input:hover {
-  background-color: var(--light-cyan);
-  color: black;
-}
-
-.search input:focus {
+  background-color: var(--dark-blue);
+  color: white;
   border: none;
 }
 
 
-.searched-advice{
+.searched-advice {
   padding: 2%;
   color: white;
   height: 100%;
   overflow-y: scroll;
 }
 
-.searched-advice li{
+.searched-advice li {
   margin-top: 2%;
+  list-style: none;
 }
 
-.advice-id{
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.advice-id {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 800;
   color: aquamarine;
 }
 
-.advise{
+.advise {
   letter-spacing: 1px;
-}
-
-.rotate {
-  animation: rotate 2s linear infinite;
 }
 
 @keyframes rotate {
@@ -171,22 +177,23 @@ form {
     transform: rotate(180deg);
   }
 }
+
 .spin {
   animation: rotate 0.5s linear infinite;
 }
 
-@keyframes spin{
+@keyframes spin {
   from {
-      transform: rotate(0deg);
-    }
-  
-    to {
-      transform: rotate(180deg);
-    }
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
 }
 
 @media screen and (min-width: 768px) {
-  #ad {
+  .ad {
     font-size: 1.3rem;
   }
 
@@ -206,22 +213,85 @@ form {
 
   .dktp-divider {
     display: block;
-    margin-bottom: 10%;
+    margin-top: 5%;
   }
 
   .search {
-    width: 60%;
+    width: 80%;
+    height: 9%;
+  }
+
+  .search input {
+    font-size: 1.6em;
+  }
+
+  .search button {
+    font-size: 1.5em;
+  }
+
+  .advice-id,
+  .searched-advice {
+    font-size: 20px;
   }
 }
 
-@media screen and (min-width: 1000px) and (min-width:1440px) {
+@media screen and (min-width: 1000px) {
   .container {
     margin-top: 5%;
     border-radius: 20px;
-    width: 30%;
+    width: 80%;
+  }
+
+  .advice-container{
+    height: 60%;
   }
 
   .search {
+    width: 75%;
+  }
+
+  .search input {
+    font-size: 1.5em;
+  }
+
+
+  .advice-id,
+  .searched-advice {
+    font-size: 30px;
+  }
+
+  .advice-container {
+    margin-top: 0;
+  }
+
+  .ad {
+    margin-top: 13%;
+  }
+
+  .dktp-divider{
     width: 70%;
   }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 60%;
+  }
+
+  .search {
+    width: 75%;
+  }
+
+  .advice-container {
+    margin-top: 0;
+  }
+
+  .ad {
+    margin-top: 12%;
+  }
+
+  .dktp-divider{
+    margin-top: 3%;
+  }
+
 }

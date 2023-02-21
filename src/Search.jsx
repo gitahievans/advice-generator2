@@ -6,6 +6,9 @@ function Search({
   isFetching,
   onSearchStart,
   onSearchComplete,
+  adviceData,
+  notFound,setAdviceData,
+  onNotFound, advice, setAdvice
 }) {
   const [query, setQuery] = useState("");
 
@@ -16,8 +19,16 @@ function Search({
       const response = await axios.get(
         `https://api.adviceslip.com/advice/search/${query}`
       );
-      onSearchResponse(response.data.slips);
+      // console.log(response);
+      if (response.data.message) {
+        onNotFound(response.data.message.text);
+        setAdviceData([])
+        // console.log(response.data.message);
+      } else {
+        onSearchResponse(response.data.slips);
+      }
       onSearchComplete();
+      setQuery('')
     } catch (err) {
       console.error(err);
       onSearchComplete();
@@ -28,24 +39,28 @@ function Search({
     setQuery(event.target.value);
   };
 
+  const handleClick = () => {
+    setAdvice('')
+  }
+
   return (
     <div className="search">
       <form action="submit" onSubmit={searchAdvice}>
         <input
           type="text"
-          placeholder="Search a quote"
+          placeholder="Enter any word to get quotes"
           value={query}
           onChange={handleChange}
           required
         />
-        <button
-          type="submit"
-          className={isFetching ? "rotate" : ""}
-          disabled={isFetching}
-        >
-          Search
+        <button type="submit" disabled={isFetching} onClick={handleClick}>
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/8001/8001328.png"
+            alt=""
+            className={isFetching ? "rotate" : "gear"}
+          />
         </button>
-      </form>
+      </form>{" "}
     </div>
   );
 }

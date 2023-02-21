@@ -41,6 +41,7 @@ function App() {
         onSearchComplete={handleSearchComplete}
         isFetching={isFetching}
         isRolling={isRolling}
+        setAdvice={setAdvice}
       />
     </div>
   );
