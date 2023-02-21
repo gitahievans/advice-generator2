@@ -42,13 +42,13 @@ const Advice = ({
         setAdviceData={setAdviceData}
       />
       {!advice && adviceData && adviceData.length > 0 ? (
-        <p className="ad">{adviceData.length} matches found</p>
+        <p className="ad">{adviceData.length} match(es) found</p>
       ) : !notFound ? 
         <p className="ad">ADVICE #{advice.id}</p> : null
       }
       <div className="advice-container">
         {advice && adviceData ? (
-          <p>{advice.advice}</p>
+          <p className="advice-advice">{advice.advice}</p>
         ) : adviceData && adviceData.length > 0 ? (
           <ul className="searched-advice">
             {adviceData.map((adv) => (
@@ -59,7 +59,7 @@ const Advice = ({
             ))}
           </ul>
         ) : notFound ? (
-          <p style={{ color: "red", fontSize: "15px", marginTop: "50%" }}>
+          <p className="not-found">
             {notFound}
           </p>
         ) : null}
@@ -87,6 +87,3 @@ const Advice = ({
 
 export default Advice;
 
-/*{notFound ? (
-          <p style={{ color: "red", fontSize: "15px", marginTop: "50%" }}>{notFound}</p>
-        ) :*/
