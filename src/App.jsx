@@ -5,18 +5,22 @@ import Advice from "./Advice";
 function App() {
   const [advice, setAdvice] = useState("");
   const [isFetching, setIsFetching] = useState(false);
+  const [isRolling, setIsRolling] = useState(false)
 
   window.onload = () => {
     fetchAdvice();
   };
 
   const fetchAdvice = async () => {
+    setIsRolling(true);
     try {
       const response = await axios.get("https://api.adviceslip.com/advice");
       // console.log(response.data.slip);
       setAdvice(response.data.slip);
+      setIsRolling(false);
     } catch (error) {
       console.error(error);
+      setIsRolling(false);
     }
   };
 
@@ -36,6 +40,7 @@ function App() {
         onSearchStart={handleSearchStart}
         onSearchComplete={handleSearchComplete}
         isFetching={isFetching}
+        isRolling={isRolling}
       />
     </div>
   );

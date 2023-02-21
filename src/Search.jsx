@@ -30,15 +30,16 @@ function Search({
 
   return (
     <div className="search">
-      <form action="submit">
+      <form action="submit" onSubmit={searchAdvice}>
         <input
           type="text"
           placeholder="Search a quote"
           value={query}
           onChange={handleChange}
+          required
         />
         <button
-          onClick={searchAdvice}
+          type="submit"
           className={isFetching ? "rotate" : ""}
           disabled={isFetching}
         >

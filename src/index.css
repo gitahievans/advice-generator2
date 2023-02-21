@@ -83,7 +83,7 @@ body {
   transition: box-shadow .2s ease-in-out;
 }
 
-.dice {
+.dice, .spin {
   position: absolute;
   top: 30.5%;
   left: 28%;
@@ -136,9 +136,6 @@ form {
   border: none;
 }
 
-.rotate {
-  animation: rotate 2s linear infinite;
-}
 
 .searched-advice{
   padding: 2%;
@@ -146,14 +143,46 @@ form {
   height: 100%;
   overflow-y: scroll;
 }
+
+.searched-advice li{
+  margin-top: 2%;
+}
+
+.advice-id{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 800;
+  color: aquamarine;
+}
+
+.advise{
+  letter-spacing: 1px;
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
 
   to {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
   }
+}
+.spin {
+  animation: rotate 0.5s linear infinite;
+}
+
+@keyframes spin{
+  from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(180deg);
+    }
 }
 
 @media screen and (min-width: 768px) {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Search from "./Search";
 
-const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetching }) => {
+const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetching, isRolling }) => {
   const [adviceData, setAdviceData] = useState([]);
 
   const handleAdviceData = (data) => {
@@ -23,8 +23,8 @@ const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetchi
           <ul className="searched-advice">
             {adviceData.map((adv) => (
               <li key={adv.id}>
-               <span >Advice {adv.id}:</span> 
-                {adv.advice} <hr />
+                <span className="advice-id">Advice {adv.id}: </span>
+                <span className="advise">{adv.advice} </span>
               </li>
             ))}
           </ul>
@@ -42,8 +42,12 @@ const Advice = ({ advice, fetchAdvice, onSearchComplete, onSearchStart, isFetchi
         alt=""
         className="dktp-divider"
       />
-      <div className="btn" onClick={fetchAdvice}>
-        <img src="/images/icon-dice.svg" alt="roll" className="dice" />
+      <div className='btn' onClick={fetchAdvice}>
+        <img
+          src="/images/icon-dice.svg"
+          alt="roll"
+          className={isRolling ? "spin" : "dice"}
+        />
       </div>
     </div>
   );
