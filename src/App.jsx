@@ -4,7 +4,11 @@ import Advice from "./Advice";
 
 function App() {
   const [advice, setAdvice] = useState("");
-  // const [isActive, setIsActive] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
+
+  window.onload = () => {
+    fetchAdvice();
+  };
 
   const fetchAdvice = async () => {
     try {
@@ -16,16 +20,23 @@ function App() {
     }
   };
 
+  const handleSearchStart = () => {
+    setIsFetching(true);
+  };
+
+  const handleSearchComplete = () => {
+    setIsFetching(false);
+  };
 
   return (
     <div className="app">
-      <Advice advice={advice} />
-      <div
-        className="btn"
-        onClick={fetchAdvice}
-      >
-        <img src="/images/icon-dice.svg" alt="roll" className="dice" />
-      </div>
+      <Advice
+        advice={advice}
+        fetchAdvice={fetchAdvice}
+        onSearchStart={handleSearchStart}
+        onSearchComplete={handleSearchComplete}
+        isFetching={isFetching}
+      />
     </div>
   );
 }
