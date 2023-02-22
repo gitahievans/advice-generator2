@@ -242,8 +242,9 @@ form {
     width: 80%;
   }
 
-  .advice-container{
+  .advice-container {
     height: 60%;
+    margin-top: 0;
   }
 
   .search {
@@ -260,38 +261,31 @@ form {
     font-size: 30px;
   }
 
-  .advice-container {
-    margin-top: 0;
-  }
 
   .ad {
     margin-top: 13%;
   }
 
-  .dktp-divider{
+  .dktp-divider {
     width: 70%;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
-    width: 60%;
+    width: 50%;
   }
 
   .search {
     width: 75%;
   }
 
-  .advice-container {
-    margin-top: 0;
-  }
-
   .ad {
     margin-top: 12%;
   }
 
-  .dktp-divider{
-    margin-top: 3%;
+  .dktp-divider {
+    margin-top: 0;
   }
 
 }

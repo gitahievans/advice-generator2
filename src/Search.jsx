@@ -6,11 +6,12 @@ function Search({
   isFetching,
   onSearchStart,
   onSearchComplete,
-  adviceData,
-  notFound,setAdviceData,
-  onNotFound, advice, setAdvice
+  setAdviceData,
+  onNotFound,  
+  setAdvice
 }) {
   const [query, setQuery] = useState("");
+  // const [enabled, setEnabled] = useState(false);
 
   const searchAdvice = async (e) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ function Search({
   };
 
   const handleChange = (event) => {
-    setQuery(event.target.value);
+    setQuery(event.target.value.trim());
   };
 
   const handleClick = () => {
@@ -48,12 +49,12 @@ function Search({
       <form action="submit" onSubmit={searchAdvice}>
         <input
           type="text"
-          placeholder="Enter any word to get quotes"
+          placeholder="Enter any word(s) to get quotes"
           value={query}
           onChange={handleChange}
           required
         />
-        <button type="submit" disabled={isFetching} onClick={handleClick}>
+        <button type="submit" onClick={handleClick} disabled={!query}>
           <img
             src="https://cdn-icons-png.flaticon.com/128/8001/8001328.png"
             alt=""

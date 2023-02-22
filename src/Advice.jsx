@@ -35,10 +35,8 @@ const Advice = ({
         onSearchComplete={onSearchComplete}
         isFetching={isFetching}
         adviceData={adviceData}
-        notFound={notFound}
         onNotFound={handleNotFound}
         setAdvice={setAdvice}
-        advice={advice}
         setAdviceData={setAdviceData}
       />
       {!advice && adviceData && adviceData.length > 0 ? (
