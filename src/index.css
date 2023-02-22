@@ -129,6 +129,10 @@ form {
   font-size: 13px;
 }
 
+.search button.disabled{
+  background-color: var(--grayish-blue);
+}
+
 .gear,
 .rotate {
   height: 100%;

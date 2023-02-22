@@ -54,7 +54,12 @@ function Search({
           onChange={handleChange}
           required
         />
-        <button type="submit" onClick={handleClick} disabled={!query}>
+        <button
+          type="submit"
+          onClick={handleClick}
+          disabled={!query}
+          className={query ? "" : "disabled"}
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/128/8001/8001328.png"
             alt=""
