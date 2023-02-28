@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Search from "./Search";
+import AdviceContainer from "./AdviceContainer";
 
 const Advice = ({
   advice,
@@ -41,26 +42,15 @@ const Advice = ({
       />
       {!advice && adviceData && adviceData.length > 0 ? (
         <p className="ad">{adviceData.length} match(es) found</p>
-      ) : !notFound ? 
-        <p className="ad">ADVICE #{advice.id}</p> : null
-      }
+      ) : !notFound ? (
+        <p className="ad">ADVICE #{advice.id}</p>
+      ) : null}
       <div className="advice-container">
-        {advice && adviceData ? (
-          <p className="advice-advice">{advice.advice}</p>
-        ) : adviceData && adviceData.length > 0 ? (
-          <ul className="searched-advice">
-            {adviceData.map((adv) => (
-              <li key={adv.id}>
-                <span className="advice-id">Advice {adv.id}: </span>
-                <span className="advise">{adv.advice} </span>
-              </li>
-            ))}
-          </ul>
-        ) : notFound ? (
-          <p className="not-found">
-            {notFound}
-          </p>
-        ) : null}
+        <AdviceContainer
+          advice={advice}
+          adviceData={adviceData}
+          notFound={notFound}
+        />
       </div>
       <img
         src="/images/pattern-divider-mobile.svg"

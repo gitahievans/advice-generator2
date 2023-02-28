@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Advice from "./Advice";
 
 function App() {
   const [advice, setAdvice] = useState("");
   const [isFetching, setIsFetching] = useState(false);
-  const [isRolling, setIsRolling] = useState(false)
+  const [isRolling, setIsRolling] = useState(false);
 
-  window.onload = () => {
-    fetchAdvice();
-  };
+  useEffect(() => {
+    window.onload = () => {
+      fetchAdvice();
+    };
+  }, []);
 
   const fetchAdvice = async () => {
     setIsRolling(true);

@@ -7,8 +7,8 @@ function Search({
   onSearchStart,
   onSearchComplete,
   setAdviceData,
-  onNotFound,  
-  setAdvice
+  onNotFound,
+  setAdvice,
 }) {
   const [query, setQuery] = useState("");
   // const [enabled, setEnabled] = useState(false);
@@ -23,13 +23,13 @@ function Search({
       // console.log(response);
       if (response.data.message) {
         onNotFound(response.data.message.text);
-        setAdviceData([])
-        // console.log(response.data.message);
+        setAdviceData([]);
       } else {
+        // console.log(response.data.slips);
         onSearchResponse(response.data.slips);
       }
       onSearchComplete();
-      setQuery('')
+      setQuery("");
     } catch (err) {
       console.error(err);
       onSearchComplete();
@@ -41,8 +41,8 @@ function Search({
   };
 
   const handleClick = () => {
-    setAdvice('')
-  }
+    setAdvice("");
+  };
 
   return (
     <div className="search">
