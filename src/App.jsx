@@ -8,9 +8,7 @@ function App() {
   const [isRolling, setIsRolling] = useState(false);
 
   useEffect(() => {
-    window.onload = () => {
       fetchAdvice();
-    };
   }, []);
 
   const fetchAdvice = async () => {
