@@ -29,7 +29,7 @@ body {
 .container {
   background-color: var(--dark-grayish-blue);
   width: 90%;
-  height: 80%;
+  height: 75%;
   margin-top: 10%;
   display: inherit;
   flex-direction: column;
@@ -41,7 +41,7 @@ body {
 .advice-container {
   height: 65%;
   width: 85%;
-  padding: 0 5%;
+  padding: 0 3%;
   margin-top: 2%;
   display: flex;
   flex-direction: column;
@@ -51,7 +51,7 @@ body {
 }
 
 .ad {
-  font-size: .7em;
+  font-size: .9em;
   letter-spacing: .2em;
   color: var(--neon-green);
   font-weight: 800;
@@ -96,7 +96,7 @@ body {
 .search {
   position: absolute;
   top: 1%;
-  width: 80%;
+  width: 90%;
   height: 8%;
 }
 
@@ -114,6 +114,7 @@ form {
   resize: vertical;
   background: transparent;
   color: white;
+  font-size: 1rem;
 }
 
 .search button {
@@ -122,7 +123,6 @@ form {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  color: black;
   font-size: 13px;
 }
 
