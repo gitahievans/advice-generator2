@@ -13,8 +13,9 @@ const AdviceContainer = ({ adviceData, advice, notFound }) => {
         ))}
       </ul>
     );
+  } else {
+    return <span style={{ color: "red" }}>{notFound}</span>;
   }
-  return <span>{notFound}</span>;
 };
 
 export default AdviceContainer;
