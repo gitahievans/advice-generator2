@@ -52,7 +52,7 @@ const Advice = ({
           notFound={notFound}
         />
       </div>
-      <img
+      {/* <img
         src="/images/pattern-divider-mobile.svg"
         alt=""
         className="mbl-divider"
@@ -61,7 +61,7 @@ const Advice = ({
         src="/images/pattern-divider-desktop.svg"
         alt=""
         className="dktp-divider"
-      />
+      /> */}
       <div className="btn" onClick={handleClick}>
         <img
           src="/images/icon-dice.svg"

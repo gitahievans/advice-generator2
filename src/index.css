@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,900&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-  font-family: 'Manrope';
+  font-family: 'Fraunces';
 }
 
 :root {
@@ -37,11 +39,15 @@ body {
 }
 
 .advice-container {
-  height: 55%;
+  height: 65%;
   width: 85%;
   padding: 0 5%;
   margin-top: 2%;
-  background: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
 }
 
 .ad {
@@ -59,21 +65,12 @@ body {
   color: white;
 }
 
-.mbl-divider {
-  width: 80%;
-  margin-top: 5%;
-}
-
-.dktp-divider {
-  display: none;
-}
-
 .btn {
-  height: 65px;
-  width: 65px;
+  height: 4rem;
+  width: 4rem;
   border-radius: 50%;
   position: absolute;
-  top: 95%;
+  top: 94%;
   z-index: 1;
   background-color: var(--neon-green);
   cursor: pointer;
@@ -84,12 +81,12 @@ body {
 .dice,
 .spin {
   position: absolute;
-  top: 30.5%;
+  top: 30%;
   left: 28%;
 }
 
-.btn:hover {
-  box-shadow: 0 0 20px 2px var(--neon-green);
+.spin {
+  animation: rotate 0.3s linear infinite;
 }
 
 .no-quote {
@@ -129,7 +126,7 @@ form {
   font-size: 13px;
 }
 
-.search button.disabled{
+.search button.disabled {
   background-color: var(--grayish-blue);
 }
 
@@ -182,9 +179,6 @@ form {
   }
 }
 
-.spin {
-  animation: rotate 0.5s linear infinite;
-}
 
 @keyframes spin {
   from {
@@ -198,30 +192,28 @@ form {
 
 @media screen and (min-width: 768px) {
   .ad {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    margin-top: 15%;
   }
 
 
+  .advice-container {
+    padding: 0 4%;
+    /* background-color: aquamarine; */
+  }
+
   .advice-container p {
-    font-size: 28px;
+    font-size: 2.2rem;
   }
 
   .container {
     width: 70%;
     margin-top: 7%;
-  }
-
-  .mbl-divider {
-    display: none;
-  }
-
-  .dktp-divider {
-    display: block;
-    margin-top: 5%;
+    /* background-color: aquamarine; */
   }
 
   .search {
-    width: 80%;
+    width: 90%;
     height: 9%;
   }
 
@@ -235,24 +227,44 @@ form {
 
   .advice-id,
   .searched-advice {
-    font-size: 20px;
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    height: 6.2rem;
+    width: 6.2rem;
+  }
+
+  .dice,
+  .spin {
+    height: 2.2rem;
+    width: 2.2rem;
+    left: 30%;
+    top: 30%;
   }
 }
 
 @media screen and (min-width: 1000px) {
   .container {
-    margin-top: 5%;
+    margin-top: 10%;
     border-radius: 20px;
-    width: 80%;
+    width: 40%;
+    height: 60%;
   }
 
   .advice-container {
-    height: 60%;
-    margin-top: 0;
+    height: 65%;
+    margin-top: 1%;
+    /* background-color: olive; */
+  }
+
+  .advice-container p {
+    font-size: 1.8rem;
   }
 
   .search {
-    width: 75%;
+    width: 85%;
+    margin-top: 1%;
   }
 
   .search input {
@@ -262,34 +274,71 @@ form {
 
   .advice-id,
   .searched-advice {
-    font-size: 30px;
+    font-size: 1.5rem;
   }
 
 
   .ad {
-    margin-top: 13%;
+    margin-top: 15%;
+    font-size: 1.2rem;
   }
+        .btn {
+          height: 4.5rem;
+          width: 4.5rem;
+          top: 93%;
+        }
+    
+        .dice,
+        .spin {
+          height: 1.6rem;
+          width: 1.6rem;
+        }
 
-  .dktp-divider {
-    width: 70%;
-  }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
-    width: 50%;
+    width: 30%;
+    margin-top: 7%;
   }
 
-  .search {
-    width: 75%;
+  .advice-container {
+    height: 65%;
+    margin-top: 0%;
+    /* background-color: olive; */
+  }
+
+  .advice-container p {
+    font-size: 2rem;
   }
 
   .ad {
-    margin-top: 12%;
+    font-size: 1.3rem;
   }
 
-  .dktp-divider {
-    margin-top: 0;
+  .advice-id,
+  .searched-advice {
+    font-size: 1.2rem;
+  }
+
+  .search {
+    width: 90%;
+  }
+
+  .ad {
+    margin-top: 15%;
+  }
+
+  .btn {
+    height: 4.5rem;
+    width: 4.5rem;
+    top: 93%;
+  }
+
+  .dice,
+  .spin {
+    height: 1.6rem;
+    width: 1.6rem;
   }
 
 }
