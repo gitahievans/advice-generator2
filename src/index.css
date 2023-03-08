@@ -108,6 +108,7 @@ form {
 
 .search input {
   width: 80%;
+  height: 2.5rem;
   padding: 12px;
   border: none;
   border-radius: 4px;
@@ -118,8 +119,9 @@ form {
 }
 
 .search button {
+  height: 2.5rem;  
   background-color: var(--neon-green);
-  padding: 12px 20px;
+  padding: 0 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -132,7 +134,7 @@ form {
 
 .gear,
 .rotate {
-  height: 100%;
+    height: 2rem;
 }
 
 .rotate {
